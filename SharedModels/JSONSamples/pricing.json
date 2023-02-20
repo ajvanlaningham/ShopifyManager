@@ -1,0 +1,106 @@
+{
+    "pricing_list": {
+        "pricing": [
+            {
+                "name": "INC - ECOMMERCE WEB SALES - STOCK",
+                "list_header_id": 907263,
+                "item": "PCTZ49112/BXA",
+                "uprice": 1.75,
+                "uom": "LBS",
+                "min_qty": null,
+                "max_qty": null,
+                "start_date_active": "04/05/2022 00: 00: 00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - STOCK",
+                "list_header_id": 907263,
+                "item": "PCTT90255/BXE",
+                "uprice": 1.75,
+                "uom": "LBS",
+                "min_qty": null,
+                "max_qty": null,
+                "start_date_active": "04/05/2022 00: 00: 00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA29359/BXE",
+                "uprice": 25.61,
+                "uom": "LBS",
+                "min_qty": 50,
+                "max_qty": 99,
+                "start_date_active": "11/01/2022 00:00:00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA29359/BXE",
+                "uprice": 22.45,
+                "uom": "LBS",
+                "min_qty": 100,
+                "max_qty": 249,
+                "start_date_active": "11/01/2022 00:00:00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA29359/BXE",
+                "uprice": 16.76,
+                "uom": "LBS",
+                "min_qty": 250,
+                "max_qty": 499,
+                "start_date_active": "11/01/2022 00:00:00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA29359/BXE",
+                "uprice": 13.1,
+                "uom": "LBS",
+                "min_qty": 500,
+                "max_qty": 999,
+                "start_date_active": "11/01/2022 00:00:00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA29359/BXE",
+                "uprice": 8.9,
+                "uom": "LBS",
+                "min_qty": 1000,
+                "max_qty": 99999,
+                "start_date_active": "11/01/2022 00:00:00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA89219/BXE",
+                "uprice": 8.9,
+                "uom": "LBS",
+                "min_qty": 1000,
+                "max_qty": 99999,
+                "start_date_active": "11/01/2022 00:00:00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA79326/BXE",
+                "uprice": 13.1,
+                "uom": "LBS",
+                "min_qty": 500,
+                "max_qty": 999,
+                "start_date_active": "11/01/2022 00:00:00"
+            },
+            {
+                "name": "INC - ECOMMERCE WEB SALES - MTO",
+                "list_header_id": 2407721,
+                "item": "PCTA79326/BXE",
+                "uprice": 25.61,
+                "uom": "LBS",
+                "min_qty": 50,
+                "max_qty": 99,
+                "start_date_active": "11/01/2022 00:00:00"
+            }
+        ]
+    }
+}
