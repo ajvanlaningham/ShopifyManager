@@ -79,7 +79,7 @@ namespace OrderTestsGenerator
 
                     header = new SharedModels.Models.Header()
                     {
-                        ordered_date = DateTime.Now.ToString(),
+                        ordered_date = ConvertDateTimeString(DateTime.Now),
                         orig_sys_document_reference = 12345, //idiot luggage code 
                         cust_po_number = "",
                         hdr_payment_terms_code =  "net-30",
@@ -113,8 +113,8 @@ namespace OrderTestsGenerator
                         ordered_quantity_uom = "lbs", 
                         promise_date = "", 
                         earliest_acceptable_date = "",
-                        request_date = DateTime.Now.ToString(),
-                        scheduled_ship_date = DateTime.Now.AddDays(2).ToString(),
+                        request_date = ConvertDateTimeString(DateTime.Now),
+                        scheduled_ship_date = ConvertDateTimeString(DateTime.Now.AddDays(2)),
                         delivery_lead_time = 5, 
                         expedited_ship_flag = "N",  
                         freight_carrier_code = "GENERIC",
@@ -153,6 +153,11 @@ namespace OrderTestsGenerator
             }
 
             return productList;
+        }
+
+        public static string ConvertDateTimeString(DateTime dateTime)
+        {
+            return dateTime.ToString("yyyy-MM-dd hh:mm:ss");
         }
     }
 }
