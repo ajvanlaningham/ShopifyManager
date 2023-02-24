@@ -57,7 +57,7 @@ namespace OrderTestsGenerator
                     custom_rec = new SharedModels.Models.CustomerReccord()
                     {
                         cust_acct_num = customer.ACCOUNT,
-                        site_use_id = customer.SITE_NUMBER,
+                        site_use_id = null, //customer.SITE_NUMBER,
                         address1 = customer.ADDRESS_LINE_1,
                         address2 = customer.ADDRESS_LINE_2,
                         address3 = customer.ADDRESS_LINE_3,
@@ -103,6 +103,10 @@ namespace OrderTestsGenerator
                 foreach (Product product in Products)
                 {
                     ProductVariant variant = product.Variants.FirstOrDefault();
+                    if (variant.SKU != null && variant.SKU.Contains("Panel"))
+                    {
+                        variant = product.Variants.ToList()[1];
+                    }
                     SharedModels.Models.Line newLine = new SharedModels.Models.Line()
                     {
                         unit_price = variant.Price.Value.ToString(),
@@ -158,6 +162,20 @@ namespace OrderTestsGenerator
         public static string ConvertDateTimeString(DateTime dateTime)
         {
             return dateTime.ToString("yyyy-MM-dd hh:mm:ss");
+        }
+
+        public static string CheckVariantSku(string productSku)
+        {
+            string sku;
+            if(productSku.Contains("Panel"))
+            {
+                sku = productSku.Split("-").First();
+            }
+            else
+            {
+                sku = productSku;
+            }
+            return sku;
         }
     }
 }
