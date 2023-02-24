@@ -15,25 +15,23 @@ namespace Orders
         {
 
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-            // Replace with your Shopify store URL
+         
             string shopifyStoreUrl = config["ProdShopUrl"];
-
-            // Replace with your API key and password
             string apiKey = config["ProdAPIKey"];
             string password = config["ProdSecretKey"];
             string serviceBusConnectionString = config["DevConnection"];
             string queueName = config["OrderQueue"];
 
-            // Create a new HttpClient
+            // Creates a new HttpClient
             using (var client = new HttpClient())
             {
-                // Set the base URL for the Shopify API
+                // Sets the base URL for the Shopify API
                 client.BaseAddress = new Uri(shopifyStoreUrl + "/admin/");
 
-                // Set the authentication headers
+                // Sets the authentication headers
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(apiKey + ":" + password)));
 
-                // Send a GET request to the orders endpoint
+                // Sends a GET request to the orders endpoint
                 var response = client.GetAsync("orders.json?limit=1").Result;
                 var _queueService = new QueueService(serviceBusConnectionString, queueName);
                 var _customerService = new CustomerService(shopifyStoreUrl, password);
