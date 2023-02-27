@@ -5,8 +5,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UserSecretsId>4fd4dd80-3942-4a01-8dd9-08f33d69fd39</UserSecretsId>
+    <UserSecretsId>055a8cba-1fa0-4c21-ba7e-48065c31ce92</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="ShopifyProduct.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.2.0" />
@@ -15,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Oracle\ShopifyProduct.csproj" />
     <ProjectReference Include="..\SharedModels\SharedModels.csproj" />
   </ItemGroup>
 

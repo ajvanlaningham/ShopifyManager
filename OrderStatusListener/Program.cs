@@ -8,8 +8,10 @@ namespace OrderStatusListener
 {
     internal class Program
     {
+        const string connectionString = "";
+        const string queueName = "";
         static IQueueClient queueClient;
-        static async void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
@@ -42,7 +44,7 @@ namespace OrderStatusListener
             try
             {
                 var orderStatus = JsonConvert.DeserializeObject<OrderConfirmation>(payload);
-                if (orderStatus.ErrorMessage == "")
+                if (orderStatus.ErrorMessage == "" || orderStatus.ErrorMessage == null)
                 {
                     OrderStatusUpdater updater = new OrderStatusUpdater(orderStatus);
                     updater.UpdateCustomerAsync();

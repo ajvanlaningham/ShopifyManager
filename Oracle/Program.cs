@@ -7,10 +7,18 @@ using System.Collections.Generic;
 namespace ShopifyProduct
 
 {
-    internal class Program
+    public class Program
     {
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
+
+            if (args.Length == 0)
+            {
+                Console.WriteLine("no argument");
+                return;
+            }
+            var pricingJson = args[0];
+
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
             string ProdShopUrl = config["ProdShopUrl"];
@@ -18,12 +26,8 @@ namespace ShopifyProduct
             string devshopUrl = config["DevShopUrl"];
             string devaccessToken = config["DevSecretKey"];
 
-            var jsonPath = @"C:\Users\u526137\source\repos\Shopify\Oracle\ShopifyProduct\SharedModels\JSONSamples\pricing.json";
-            var json = File.ReadAllText(jsonPath);
-
-            IICSPricing MessageList = JsonConvert.DeserializeObject<IICSPricing>(json);
+            IICSPricing MessageList = JsonConvert.DeserializeObject<IICSPricing>(pricingJson);
             Console.WriteLine("Deserialized json file");
-
 
             try
             {
@@ -37,8 +41,10 @@ namespace ShopifyProduct
 
                 foreach (Pricing pricingItem in MessageList.pricing_list.pricing)
                 {
+                    //break up sku string 
+                    string baseSku = pricingItem.item.Split('/').First();
                     //check if the product exists in shopify
-                    Product shopifyProduct = shopifyProducts.Find(p => p.Variants.FirstOrDefault().SKU.Split('-').First() == pricingItem.item);
+                    Product shopifyProduct = shopifyProducts.Find(p => p.Variants.FirstOrDefault().SKU.Split('-').First() == baseSku);
                     
 
                     if (shopifyProduct != null)
@@ -261,7 +267,7 @@ namespace ShopifyProduct
             }
         }
 
-        public async Task UpdateOrCreateProductsFromJson(List<Product> jsonProducts, List<Product> currentProducts, ShopifyProductService service)
+        private async Task UpdateOrCreateProductsFromJson(List<Product> jsonProducts, List<Product> currentProducts, ShopifyProductService service)
         {
             foreach (var product in jsonProducts)
             {

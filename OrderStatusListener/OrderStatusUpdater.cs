@@ -19,12 +19,12 @@ namespace OrderStatusListener
 
         public async Task UpdateCustomerAsync()
         {
-
+            Console.WriteLine($"updated customer or w/e with {_confirmation.LocationId}");
         }
 
         public async Task SendStatusAsync()
         {
-
+            Console.WriteLine($"Sending the status with this number {_confirmation.OrderNumber}");
         }
         public async Task GetCustomerAsync()
         {
