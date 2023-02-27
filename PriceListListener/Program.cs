@@ -18,7 +18,7 @@ namespace PriceListListener
 
             var serviceBusConnectionString = config["SBConnectionString"];
             var queueName = config["QueueName"];
-             _queueClient = new QueueClient(serviceBusConnectionString, queueName);
+            _queueClient = new QueueClient(serviceBusConnectionString, queueName);
 
             var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
             {
@@ -28,13 +28,15 @@ namespace PriceListListener
 
             _queueClient.RegisterMessageHandler(ProcessMessagesAsync, messageHandlerOptions);
 
+            Console.ReadLine();
+
             await _queueClient.CloseAsync();
         }
 
         private async static Task ProcessMessagesAsync(Message message, CancellationToken token)
         {
-            var payload = Encoding.UTF8.GetString(message.Body);
-            IICSPricing pricing = JsonConvert.DeserializeObject<IICSPricing>(payload);
+           
+            IICSPricing pricing = JsonConvert.DeserializeObject<IICSPricing>(Encoding.UTF8.GetString(message.Body));
 
             await ShopifyProduct.Program.Main(new string[] { JsonConvert.SerializeObject(pricing) });
             await _queueClient.CompleteAsync(message.SystemProperties.LockToken);
