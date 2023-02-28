@@ -132,7 +132,6 @@ namespace ShopifyProduct
 
                                     Console.WriteLine("Updated Variant inventory level");
                                 }
-
                                 Console.WriteLine($"Product {pricingItem.item} has been created in shopify store");
                             }
                         }
@@ -141,17 +140,43 @@ namespace ShopifyProduct
                             Console.WriteLine("No update needed");
                         }
                     }
-                    else
+                    else //no product found. Create a new one
                     {
                         Console.WriteLine("shopify Product was null");
-                        //TODO: create a new product
+                        Console.WriteLine("Creating new product");
+
+                        //Product newProduct = new Product()
+                        //{
+                        //    Title = "",
+                        //    BodyHtml = "",
+                        //    Vendor = "",
+                        //    ProductType = "",
+                        //    Handle = "",
+                        //    TemplateSuffix = "",
+                        //    PublishedScope = "",
+                        //    Tags = "",
+                        //    Status = "",
+                        //    //Ienumerable ProductOptions goes here. 
+                        //    Variants = new List<ProductVariant>()
+                        //    {
+                        //        new ProductVariant()
+                        //        {
+                        //            Title = "",
+                        //            SKU = pricingItem.item,
+                        //            Grams = 454,
+                        //            Price = pricingItem.uprice,
+                        //            Option1 = pricingItem.min_qty.ToString()?? "Pounds"
+
+                        //        }
+                        //    }
+                        //};
                     }
                 }                
             }
             catch (Exception ex)
             {
-                    Console.WriteLine("Error connecting to the store:");
-                    Console.WriteLine(ex.Message);
+                Console.WriteLine("Error connecting to the store:");
+                Console.WriteLine(ex.Message);
             }
         }
 
