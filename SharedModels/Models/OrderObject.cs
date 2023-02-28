@@ -24,6 +24,7 @@ namespace SharedModels.Models
         public string address4 { get; set; }
         public string city { get; set; }
         public string state { get; set; }
+        public string country { get; set; }
         public string postal_code { get; set; }
         public string location_id { get; set; } // get map table from oracle to format correctly (blank is fine, might be sent back to be stored)
         public string location { get; set; } // What does oracle want? (reference to the customer, must be unique unique)

@@ -13,7 +13,6 @@ namespace Orders
     {
         static async Task Main(string[] args)
         {
-
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
          
             string shopifyStoreUrl = config["DevShopUrl"];
@@ -60,6 +59,7 @@ namespace Orders
                                 city = order.shipping_address.city,
                                 state = order.shipping_address.province,
                                 postal_code = order.shipping_address.zip,
+                                country = order.shipping_address.country_code,
                                 location_id = "", //mapping table for the oracle format
                                 location = "",// test blank
                                 contact_id = "", //blank?

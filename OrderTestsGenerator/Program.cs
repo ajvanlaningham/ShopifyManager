@@ -16,8 +16,11 @@ namespace OrderTestsGenerator
             string serviceBusConnectionString = config["DevConnection"];
             string queueName = config["OrderQueue"];
             string excelFilePath = config["FilePath"];
-            string shopifyStoreUrl = config["ProdShopUrl"];
-            string password = config["ProdSecretKey"];
+            string shopifyStoreUrl = config["DevShopUrl"];
+            string password = config["DevSecretKey"];
+
+            var random = new Random();
+            int rowNumber =random.Next(2,278);
 
             var _queueService = new QueueService(serviceBusConnectionString, queueName);
             var _shopifyProductService = new ShopifyProductService(shopifyStoreUrl, password);
@@ -28,7 +31,7 @@ namespace OrderTestsGenerator
             using (package)
             {
                 var worksheet = package.Workbook.Worksheets[0];
-                for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
+                for (int row = rowNumber ; row <= worksheet.Dimension.End.Row; row++)
                 {
                     var customer = new OracleTestCustomer();
                     customer.CUSTOMER_NAME = worksheet.Cells[row, 1].Value?.ToString();
@@ -65,6 +68,7 @@ namespace OrderTestsGenerator
                         city = customer.CITY,
                         state = customer.STATE,
                         postal_code = customer.ZIP_CODE,
+                        country = customer.COUNTRY,
                         location_id = "",
                         location = "",
                         contact_id = "",
@@ -116,9 +120,9 @@ namespace OrderTestsGenerator
                         ordered_quantity = 1,
                         ordered_quantity_uom = "lbs", 
                         promise_date = "", 
-                        earliest_acceptable_date = "",
+                        earliest_acceptable_date = ConvertDateTimeString(DateTime.Now.AddDays(5)),
                         request_date = ConvertDateTimeString(DateTime.Now),
-                        scheduled_ship_date = ConvertDateTimeString(DateTime.Now.AddDays(2)),
+                        scheduled_ship_date = null,
                         delivery_lead_time = 5, 
                         expedited_ship_flag = "N",  
                         freight_carrier_code = "GENERIC",
@@ -153,9 +157,11 @@ namespace OrderTestsGenerator
             for (int i = 0; i < count; i++)
             {
                 var index = random.Next(0, bigProductList.Count);
-                productList.Add(bigProductList[index]);
+                if (bigProductList[index].Variants.FirstOrDefault().SKU.Contains('/'))
+                {
+                    productList.Add(bigProductList[index]);
+                }
             }
-
             return productList;
         }
 
