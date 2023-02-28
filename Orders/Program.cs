@@ -16,9 +16,9 @@ namespace Orders
 
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
          
-            string shopifyStoreUrl = config["ProdShopUrl"];
+            string shopifyStoreUrl = config["DevShopUrl"];
             string apiKey = config["ProdAPIKey"];
-            string password = config["ProdSecretKey"];
+            string password = config["DevSecretKey"];
             string serviceBusConnectionString = config["DevConnection"];
             string queueName = config["OrderQueue"];
 
@@ -102,14 +102,14 @@ namespace Orders
                             {
                                 unit_price = line.price,
                                 calculate_price_flag = "N",
-                                ppg_item_number = line.sku,
+                                ppg_item_number = line.sku+"/BXE",
                                 customer_part_number = line.product_id,
                                 ordered_quantity = line.quantity,
                                 ordered_quantity_uom = GetQuantityConverter(line.grams), //ea, lbs, gal
                                 promise_date = "", //hopfully blank, check Ordered date +5
-                                earliest_acceptable_date = "", //hopfully blank, check Ordered date +5,
+                                earliest_acceptable_date = ConvertDateTimeString(order.created_at.AddDays(5)), //hopfully blank, check Ordered date +5,
                                 request_date = ConvertDateTimeString(order.created_at),
-                                scheduled_ship_date = ConvertDateTimeString(order.created_at.AddDays(2)), //+2
+                                scheduled_ship_date = "", //+2
                                 delivery_lead_time = 5, //+5
                                 expedited_ship_flag = "N", //reevalute later 
                                 freight_carrier_code = "GENERIC",//order.shipping_lines.FirstOrDefault().carrier_identifier,

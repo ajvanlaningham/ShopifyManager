@@ -5,6 +5,7 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using SharedModels.Models.APIModel;
+using Microsoft.Azure.ServiceBus.InteropExtensions;
 using ShopifyProduct;
 
 namespace PriceListListener
@@ -35,11 +36,15 @@ namespace PriceListListener
 
         private async static Task ProcessMessagesAsync(Message message, CancellationToken token)
         {
-           
-            IICSPricing pricing = JsonConvert.DeserializeObject<IICSPricing>(Encoding.UTF8.GetString(message.Body));
+            
+           var body = message.GetBody<string>();
+           if (body != null)
+           {
+                IICSPricing pricing = JsonConvert.DeserializeObject<IICSPricing>(body);
 
-            await ShopifyProduct.Program.Main(new string[] { JsonConvert.SerializeObject(pricing) });
-            await _queueClient.CompleteAsync(message.SystemProperties.LockToken);
+                await ShopifyProduct.Program.Main(new string[] { JsonConvert.SerializeObject(pricing) });
+                await _queueClient.CompleteAsync(message.SystemProperties.LockToken);
+            }
         }
 
         static Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)

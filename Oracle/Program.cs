@@ -11,7 +11,6 @@ namespace ShopifyProduct
     {
         public static async Task Main(string[] args)
         {
-
             if (args.Length == 0)
             {
                 Console.WriteLine("no argument");
@@ -37,7 +36,6 @@ namespace ShopifyProduct
                 var shopifyProducts = await service.GetAllProductsAsync();
                 Console.WriteLine("Product list from Shopify store");
                 Console.WriteLine($"There are {shopifyProducts.Count} products in the List");
-               
 
                 foreach (Pricing pricingItem in MessageList.pricing_list.pricing)
                 {
@@ -59,41 +57,28 @@ namespace ShopifyProduct
                         
                         if (currentVariant.Price != pricingItem.uprice || currentVariant.SKU != skuString)
                         {
-                            var productVariant = new ProductVariant();
+                            var productVariant = new ProductVariant()
+                            {
+                                Price = pricingItem.uprice,
+                                CompareAtPrice = currentVariant.CompareAtPrice ?? null,
+                                FulfillmentService = currentVariant.FulfillmentService ?? null,
+                                Barcode = currentVariant.Barcode ?? null,
+                                Option1 = currentVariant.Option1 ?? pricingItem.min_qty.ToString(),
+                                Option2 = currentVariant.Option2 ?? null,
+                                Option3 = currentVariant.Option3 ?? null
+                            };
                             //if minumum quantity, sku is the pricingItem.Item + "-min_qty", if no min qty, sku is just pricing.item.
-                            //TODO : CLEAN THIS UP. YOU CAN DO THIS IN LIKE HALF THE LINES
                             if (pricingItem.min_qty != null)
                             {
-                                var productVariant1 = new ProductVariant()
-                                {
-                                    Title = pricingItem.min_qty.ToString(),
-                                    Price = pricingItem.uprice,
-                                    CompareAtPrice = currentVariant.CompareAtPrice ?? null,
-                                    FulfillmentService = currentVariant.FulfillmentService ?? null,
-                                    Barcode = currentVariant.Barcode ?? null,
-                                    SKU = skuString,
-                                    Option1 = currentVariant.Option1 ?? pricingItem.min_qty.ToString(),
-                                    Option2 = currentVariant.Option2 ?? null,
-                                    Option3 = currentVariant.Option3 ?? null
-                                };
-                                productVariant = productVariant1;
+                                productVariant.Title = pricingItem.min_qty.ToString();
+                                productVariant.SKU = pricingItem.item + "-" + pricingItem.min_qty.ToString();
                             }
                             else
                             {
-                                var productVariant2 = new ProductVariant()
-                                {
-                                    Title = pricingItem.min_qty.ToString(),
-                                    Price = pricingItem.uprice,
-                                    CompareAtPrice = currentVariant.CompareAtPrice ?? null,
-                                    FulfillmentService = currentVariant.FulfillmentService ?? null,
-                                    Barcode = currentVariant.Barcode ?? null,
-                                    SKU = pricingItem.item,
-                                    Option1 = currentVariant.Option1 ?? pricingItem.min_qty.ToString(),
-                                    Option2 = currentVariant.Option2 ?? null,
-                                    Option3 = currentVariant.Option3 ?? null
-                                };
-                                productVariant = productVariant2;
+                                productVariant.Title = "Pounds";
+                                productVariant.SKU = pricingItem.item;
                             }
+
                             Console.WriteLine("created new Variant. Updating in shopify...");
 
                             if ( !newVariant)
@@ -174,7 +159,7 @@ namespace ShopifyProduct
         {
             List<ProductVariant> variants = (List<ProductVariant>)product.Variants;
 
-            if (pricingItem.min_qty.GetValueOrDefault() != 0)
+            if (pricingItem.min_qty != null)
             {
                 foreach (var variant in variants)
                 {
