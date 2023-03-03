@@ -78,7 +78,7 @@ namespace SharedModels.Models.APIModel
         public int orders_count { get; set; }
         public string state { get; set; }
         public string total_spent { get; set; }
-        public long last_order_id { get; set; }
+        public long? last_order_id { get; set; }
         public string note { get; set; }
         public bool verified_email { get; set; }
         public object multipass_identifier { get; set; }
@@ -224,7 +224,7 @@ namespace SharedModels.Models.APIModel
         public string gateway { get; set; }
         public string landing_site { get; set; }
         public object landing_site_ref { get; set; }
-        public long location_id { get; set; }
+        public long? location_id { get; set; }
         public string name { get; set; }
         public string note { get; set; }
         public List<NoteAttribute> note_attributes { get; set; }

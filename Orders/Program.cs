@@ -14,9 +14,9 @@ namespace Orders
         static async Task Main(string[] args)
         {
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-         
+
             string shopifyStoreUrl = config["DevShopUrl"];
-            string apiKey = config["ProdAPIKey"];
+            string apiKey = config["DevAPIKey"];
             string password = config["DevSecretKey"];
             string serviceBusConnectionString = config["DevConnection"];
             string queueName = config["OrderQueue"];
@@ -39,10 +39,10 @@ namespace Orders
                 if (response.IsSuccessStatusCode)
                 {
                     OrdersRoot orders = JsonConvert.DeserializeObject<OrdersRoot>(response.Content.ReadAsStringAsync().Result);
+                    var orderJson = JsonConvert.SerializeObject(orders);
+                    Console.WriteLine(orderJson);
 
-                    Console.WriteLine(orders);
-
-                     //Loop through the orders
+                    //Loop through the orders
                     foreach (var order in orders.orders)
                     {
 
@@ -77,7 +77,7 @@ namespace Orders
                                 ordered_date = ConvertDateTimeString(order.processed_at),
                                 orig_sys_document_reference = order.id, //shopify order number
                                 cust_po_number = order.note ?? "",
-                                hdr_payment_terms_code = await GetSiteUseID(_customerService, order.customer.id) == "0" ? "net-30" : "",
+                                hdr_payment_terms_code = "net-30",//CC NET 5?
                                 hdr_payment_type_code = "",
                                 hdr_freight_charges_code = "",
                                 hdr_fob_point_code = "",
@@ -102,7 +102,7 @@ namespace Orders
                             {
                                 unit_price = line.price,
                                 calculate_price_flag = "N",
-                                ppg_item_number = line.sku+"/BXE",
+                                ppg_item_number = line.sku,
                                 customer_part_number = line.product_id,
                                 ordered_quantity = line.quantity,
                                 ordered_quantity_uom = GetQuantityConverter(line.grams), //ea, lbs, gal
@@ -152,9 +152,9 @@ namespace Orders
                 else if (tag.Contains("INC") || tag.Contains("REF"))
                 {
                     return tag;
-                }                
+                }
             }
-            return "0";
+            return "0025616INC";
         }
 
         public async static Task<string> GetSiteUseID(CustomerService _service, long customerID)
@@ -171,10 +171,20 @@ namespace Orders
             return "0";
         }
 
+        public static string GetPaymentTerms(string details)
+        {
+            string paymentTerms = details;
+            if (details == null)
+            {
+                Console.WriteLine($"{details}");
+            }
+            return paymentTerms;
+        }
+
         public static string GetQuantityConverter(int grams)
         {
             //TODO: update switch case in case of alternatives/new products
-            switch(grams)
+            switch (grams)
             {
                 case 454:
                     return "LBS";

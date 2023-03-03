@@ -1,0 +1,60 @@
+{
+  "custom_rec": {
+    "cust_acct_num": "0025616INC",
+    "site_use_id": "0",
+    "address1": "1175 Gainsville Road",
+    "address2": "",
+    "address3": "",
+    "address4": "",
+    "city": "Brighton",
+    "state": "Tennessee",
+    "country": "US",
+    "postal_code": "38011",
+    "location_id": "",
+    "location": "",
+    "contact_id": "",
+    "contact_first_name": "Joe",
+    "contact_middle_name": "",
+    "contact_last_name": "Blow",
+    "contact_email": "nyanga@ppg.com",
+    "phone_country_code": "",
+    "phone_area_code": "",
+    "phone_number": ""
+  },
+  "header": {
+    "ordered_date": "2023-03-02 02:49:07",
+    "orig_sys_document_reference": 5266771312944,
+    "cust_po_number": "",
+    "hdr_payment_terms_code": "net-30",
+    "hdr_payment_type_code": "",
+    "hdr_freight_charges_code": "",
+    "hdr_fob_point_code": "",
+    "hdr_freight_carrier_code": "",
+    "hdr_frieght_terms_code": ""
+  },
+  "lines_list": {
+    "line": [
+      {
+        "unit_price": "21.88",
+        "calculate_price_flag": "N",
+        "ppg_item_number": "PCT39161/BXA",
+        "customer_part_number": 8122363248944,
+        "ordered_quantity": 100,
+        "ordered_quantity_uom": "LBS",
+        "promise_date": "",
+        "earliest_acceptable_date": "2023-03-07 02:49:11",
+        "request_date": "2023-03-02 02:49:11",
+        "scheduled_ship_date": "",
+        "delivery_lead_time": 5,
+        "expedited_ship_flag": "N",
+        "freight_carrier_code": "GENERIC",
+        "freight_terms_code": null,
+        "ship_method_code": null,
+        "order_discount": "0.00",
+        "Freight_Charges_Code": "0.00",
+        "fob_point_code": ""
+      }
+    ]
+  },
+  "p_ou": "US_CNR_OU"
+}

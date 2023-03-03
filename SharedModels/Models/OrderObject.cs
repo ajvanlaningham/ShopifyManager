@@ -30,7 +30,7 @@ namespace SharedModels.Models
         public string location { get; set; } // What does oracle want? (reference to the customer, must be unique unique)
         public string contact_id { get; set; } //What is this? (blank)
         public string contact_first_name { get; set; }
-        public string contact_middle_name { get; set; } 
+        public string contact_middle_name { get; set; }
         public string contact_last_name { get; set; }
         public string contact_email { get; set; }
         public string phone_country_code { get; set; }

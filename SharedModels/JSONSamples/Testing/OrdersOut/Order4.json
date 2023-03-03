@@ -1,0 +1,61 @@
+{
+  "custom_rec": {
+    "cust_acct_num": "0030760INC",
+    "site_use_id": 383348,
+    "address1": "",
+    "address2": "",
+    "address3": null,
+    "address4": null,
+    "city": "",
+    "state": "",
+    "country": "",
+    "postal_code": "",
+    "location_id": "",
+    "location": "*ECOM GREAT LAKES POWDER PO ONLY",
+    "contact_id": "",
+    "contact_first_name": "GREAT LAKES POWDER ",
+    "contact_middle_name": "",
+    "contact_last_name": "",
+    "contact_email": "",
+    "phone_country_code": "",
+    "phone_area_code": "",
+    "phone_number": ""
+  },
+  "header": {
+    "ordered_date": "2023-02-28 03:45:05",
+    "orig_sys_document_reference": 12345,
+    "cust_po_number": "",
+    "hdr_payment_terms_code": "net-30",
+    "hdr_payment_type_code": "",
+    "hdr_freight_charges_code": "",
+    "hdr_fob_point_code": "",
+    "hdr_freight_carrier_code": "",
+    "hdr_frieght_terms_code": ""
+  },
+  "lines_list": {
+    {
+      "line": [
+        {
+          "unit_price": "19.20",
+          "calculate_price_flag": "N",
+          "ppg_item_number": "PCTA69112/BXZ",
+          "customer_part_number": 46483991462192,
+          "ordered_quantity": 1,
+          "ordered_quantity_uom": "lbs",
+          "promise_date": "",
+          "earliest_acceptable_date": "2023-03-06 11:55:18",
+          "request_date": "2023-03-01 11:55:18",
+          "scheduled_ship_date": null,
+          "delivery_lead_time": 5,
+          "expedited_ship_flag": "N",
+          "freight_carrier_code": "GENERIC",
+          "freight_terms_code": null,
+          "ship_method_code": "",
+          "order_discount": "",
+          "Freight_Charges_Code": null,
+          "fob_point_code": ""
+        }
+      ]
+    },
+    "p_ou": "US_CNR_OU"
+  }

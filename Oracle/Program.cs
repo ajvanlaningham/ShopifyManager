@@ -11,12 +11,12 @@ namespace ShopifyProduct
     {
         public static async Task Main(string[] args)
         {
-            if (args.Length == 0)
-            {
-                Console.WriteLine("no argument");
-                return;
-            }
-            var pricingJson = args[0];
+            //if (args.Length == 0)
+            //{
+            //    Console.WriteLine("no argument");
+            //    return;
+            //}
+            //var pricingJson = args[0];
 
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
@@ -37,24 +37,36 @@ namespace ShopifyProduct
                 Console.WriteLine("Product list from Shopify store");
                 Console.WriteLine($"There are {shopifyProducts.Count} products in the List");
 
+                //List<string> suffixes = new List<string>();
+                //foreach (Product prod in shopifyProducts)
+                //{
+                //    string suffix = prod.Variants.Last().SKU.Split('/').Last();
+                //    suffixes.Add(suffix);
+                //}
+
+                //for (int i = 0; i < suffixes.Count; i++)
+                //{
+                //    Console.WriteLine(suffixes[i]);
+                //}
+
                 foreach (Pricing pricingItem in MessageList.pricing_list.pricing)
                 {
                     //break up sku string 
                     string baseSku = pricingItem.item.Split('/').First();
                     //check if the product exists in shopify
                     Product shopifyProduct = shopifyProducts.Find(p => p.Variants.FirstOrDefault().SKU.Split('-').First() == baseSku);
-                    
+
 
                     if (shopifyProduct != null)
                     {
                         Console.WriteLine($"{pricingItem.item} Found");
-                        
+
                         //update the product in shopify with the pricing infomation
                         ProductVariant currentVariant = GetCurrentVariant(pricingItem, shopifyProduct);
                         Console.WriteLine("Found the right varient to edit");
                         bool newVariant = currentVariant.SKU == null;
                         string skuString = GetProductSKUString(pricingItem);
-                        
+
                         if (currentVariant.Price != pricingItem.uprice || currentVariant.SKU != skuString)
                         {
                             var productVariant = new ProductVariant()
@@ -81,7 +93,7 @@ namespace ShopifyProduct
 
                             Console.WriteLine("created new Variant. Updating in shopify...");
 
-                            if ( !newVariant)
+                            if (!newVariant)
                             {
                                 long id = currentVariant.Id.Value;
                                 productVariant.Id = id;
@@ -94,15 +106,15 @@ namespace ShopifyProduct
                                 shopifyProduct = await service.GetProductById(shopifyProduct.Id.Value);
                                 int i = 1;
                                 string defaultTitle = "Default Title";
-                                
+
                                 foreach (var variant in shopifyProduct.Variants)
                                 {
-                                    if (variant.Title == defaultTitle )
+                                    if (variant.Title == defaultTitle)
                                     {
-                                       string title = pricingItem.min_qty.ToString();
-                                       variant.Title = title;
-                                       variant.Option1 = title;
-                                       await service.UpdateProductAsync(shopifyProduct.Id.Value, shopifyProduct);
+                                        string title = pricingItem.min_qty.ToString();
+                                        variant.Title = title;
+                                        variant.Option1 = title;
+                                        await service.UpdateProductAsync(shopifyProduct.Id.Value, shopifyProduct);
                                     }
                                     variant.Position = i;
                                     i++;
@@ -171,7 +183,7 @@ namespace ShopifyProduct
                         //    }
                         //};
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -209,6 +221,24 @@ namespace ShopifyProduct
             else
             {
                 return pricingItem.item + "-" + pricingItem.min_qty.ToString();
+            }
+        }
+
+        private static async Task SKUSuffixCounter (List<Product> prodList)
+        {
+            List<string> suffixes = new List<string>();
+            foreach (Product prod in prodList)
+            {
+                string suffix = prod.Variants.First().SKU.Split('-').Last();
+                if (!suffix.Contains(suffix))
+                {
+                    suffixes.Add(suffix);
+                }
+            }
+            
+            for (int i = 0; i < suffixes.Count; i++)
+            {
+                Console.WriteLine(suffixes[i]);
             }
         }
 

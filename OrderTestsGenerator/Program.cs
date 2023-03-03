@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using OfficeOpenXml;
 using OrderSBSender.Services;
 using SharedModels.JSONSamples.Testing;
+using SharedModels.Models;
 using ShopifySharp;
 
 
@@ -18,6 +19,8 @@ namespace OrderTestsGenerator
             string excelFilePath = config["FilePath"];
             string shopifyStoreUrl = config["DevShopUrl"];
             string password = config["DevSecretKey"];
+
+           
 
             var random = new Random();
             int rowNumber =random.Next(2,278);
@@ -55,87 +58,89 @@ namespace OrderTestsGenerator
             for (int i = 0; i < 1; i++) //Change 1 to TestList.Count()
             {
                 OracleTestCustomer customer = TestList[i];
-                var orderObj = new SharedModels.Models.OrderObject()
-                {
-                    custom_rec = new SharedModels.Models.CustomerReccord()
-                    {
-                        cust_acct_num = customer.ACCOUNT,
-                        site_use_id = null, //customer.SITE_NUMBER,
-                        address1 = customer.ADDRESS_LINE_1,
-                        address2 = customer.ADDRESS_LINE_2,
-                        address3 = customer.ADDRESS_LINE_3,
-                        address4 = customer.ADDRESS_LINE_4,
-                        city = customer.CITY,
-                        state = customer.STATE,
-                        postal_code = customer.ZIP_CODE,
-                        country = customer.COUNTRY,
-                        location_id = "",
-                        location = "",
-                        contact_id = "",
-                        contact_first_name = customer.CUSTOMER_NAME,
-                        contact_middle_name = "",
-                        contact_last_name = "",
-                        contact_email = "",
-                        phone_country_code = "",
-                        phone_area_code = "",
-                        phone_number = "",
-                    },
+                string testJson = File.ReadAllText(@"C:\Users\u526137\source\repos\Shopify\Oracle\ShopifyProduct\SharedModels\JSONSamples\Testing\OrdersOut\Order1.json");
+                OrderObject orderObj = JsonConvert.DeserializeObject<OrderObject>(testJson);
+                //var orderObj = new SharedModels.Models.OrderObject()
+                //{
+                //    CustomRec = new SharedModels.Models.CustomerReccord()
+                //    {
+                //        CustAcctNum = customer.ACCOUNT,
+                //        SiteUseId = null, //customer.SITE_NUMBER,
+                //        Address1 = customer.ADDRESS_LINE_1,
+                //        Address2 = customer.ADDRESS_LINE_2,
+                //        Address3 = customer.ADDRESS_LINE_3,
+                //        Address4 = customer.ADDRESS_LINE_4,
+                //        City = customer.CITY,
+                //        State = customer.STATE,
+                //        PostalCode = customer.ZIP_CODE,
+                //        CountryCode = customer.COUNTRY,
+                //        LocationId = "",
+                //        Location = "",
+                //        ContactId = "",
+                //        FirstName = customer.CUSTOMER_NAME,
+                //        MiddleName = "",
+                //        LastName = "",
+                //        Email = "",
+                //        PhoneCountryCode = "",
+                //        AreaCode = "",
+                //        PhoneNumber = "",
+                //    },
 
-                    header = new SharedModels.Models.Header()
-                    {
-                        ordered_date = ConvertDateTimeString(DateTime.Now),
-                        orig_sys_document_reference = 12345, //idiot luggage code 
-                        cust_po_number = "",
-                        hdr_payment_terms_code =  "net-30",
-                        hdr_payment_type_code = "",
-                        hdr_freight_charges_code = "",
-                        hdr_fob_point_code = "",
-                        hdr_freight_carrier_code = "",
-                        hdr_frieght_terms_code = "",
-                    },
+                //    Header = new SharedModels.Models.Header()
+                //    {
+                //        OrderedDate = ConvertDateTimeString(DateTime.Now),
+                //        OrderNumber = 12345, //idiot luggage code 
+                //        PONumber = "",
+                //        PaymentTermsCode =  "net-30",
+                //        PaymentTypeCode = "",
+                //        FreightChargesCode = "",
+                //        FobPointCode = "",
+                //        FreightCarrierCode = "",
+                //        FreightTermsCode = "",
+                //    },
 
-                    lines_list = new SharedModels.Models.LinesList()
-                    {
-                        line = new List<SharedModels.Models.Line>()
-                    },
+                //    LinesList = new SharedModels.Models.LinesList()
+                //    {
+                //        Lines = new List<SharedModels.Models.Line>()
+                //    },
 
-                    p_ou = "US_CNR_OU" 
-                };
-                var LinesList = new List<SharedModels.Models.Line>();
-                List<Product> Products = await GetRandomProduct(_shopifyProductService);
+                //    POU = "US_CNR_OU" 
+                //};
+                //var LinesList = new List<SharedModels.Models.Line>();
+                //List<Product> Products = await GetRandomProduct(_shopifyProductService);
 
-                foreach (Product product in Products)
-                {
-                    ProductVariant variant = product.Variants.FirstOrDefault();
-                    if (variant.SKU != null && variant.SKU.Contains("Panel"))
-                    {
-                        variant = product.Variants.ToList()[1];
-                    }
-                    SharedModels.Models.Line newLine = new SharedModels.Models.Line()
-                    {
-                        unit_price = variant.Price.Value.ToString(),
-                        calculate_price_flag = "N",
-                        ppg_item_number = variant.SKU,
-                        customer_part_number = variant.InventoryItemId,
-                        ordered_quantity = 1,
-                        ordered_quantity_uom = "lbs", 
-                        promise_date = "", 
-                        earliest_acceptable_date = ConvertDateTimeString(DateTime.Now.AddDays(5)),
-                        request_date = ConvertDateTimeString(DateTime.Now),
-                        scheduled_ship_date = null,
-                        delivery_lead_time = 5, 
-                        expedited_ship_flag = "N",  
-                        freight_carrier_code = "GENERIC",
-                        freight_terms_code = null,
-                        ship_method_code = "",
-                        order_discount = "",
-                        Freight_Charges_Code = null,
-                        fob_point_code = ""
-                    };
-                    LinesList.Add(newLine);
-                }
+                //foreach (Product product in Products)
+                //{
+                //    ProductVariant variant = product.Variants.FirstOrDefault();
+                //    if (variant.SKU != null && variant.SKU.Contains("Panel"))
+                //    {
+                //        variant = product.Variants.ToList()[1];
+                //    }
+                //    SharedModels.Models.Line newLine = new SharedModels.Models.Line()
+                //    {
+                //        UnitPrice = variant.Price.Value.ToString(),
+                //        CalcPriceFlag = "N",
+                //        SKUBase = variant.SKU,
+                //        CustomerPartNumber = variant.InventoryItemId,
+                //        OrderedQuantity = 1,
+                //        UnitOfMeasure = "lbs", 
+                //        PromiseDate = "", 
+                //        EarliestAcceptableDate = ConvertDateTimeString(DateTime.Now.AddDays(5)),
+                //        RequestDate = ConvertDateTimeString(DateTime.Now),
+                //        ShipDate = null,
+                //        LeadTime = 5, 
+                //        ExpediteFlag = "N",  
+                //        FreightCarrierCode = "GENERIC",
+                //        FreightTermsCode = null,
+                //        ShipMethodCode = "",
+                //        OrderDiscount = "",
+                //        FreightChargesCode = null,
+                //        FobPointCode = ""
+                //    };
+                //    LinesList.Add(newLine);
+                //}
 
-                orderObj.lines_list.line = LinesList;
+                //orderObj.LinesList.Lines = LinesList;
                 var json = JsonConvert.SerializeObject(orderObj);
                 Console.WriteLine(json);
                 await _queueService.SendMessageAsync(orderObj);
@@ -160,6 +165,18 @@ namespace OrderTestsGenerator
                 if (bigProductList[index].Variants.FirstOrDefault().SKU.Contains('/'))
                 {
                     productList.Add(bigProductList[index]);
+                }
+                else
+                {
+                    Product newProduct = new Product();
+                    var newSku = bigProductList[index].Variants.Last().SKU.Split('-').First();
+                    newProduct = bigProductList[index];
+                    newProduct.Variants.First().SKU = newSku;
+                    productService.UpdateProductAsync(bigProductList[index].Id.Value, newProduct);
+                    if (newProduct.Variants.First().SKU.Contains('/'))
+                    {
+                        productList.Add(newProduct);
+                    }
                 }
             }
             return productList;

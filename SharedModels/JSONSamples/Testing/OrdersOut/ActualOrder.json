@@ -1,0 +1,361 @@
+﻿{
+  "orders": [
+    {
+      "id": 5266771312944,
+      "admin_graphql_api_id": "gid://shopify/Order/5266771312944",
+      "app_id": 580111,
+      "browser_ip": "173.91.15.52",
+      "buyer_accepts_marketing": false,
+      "cancel_reason": null,
+      "cancelled_at": null,
+      "cart_token": "01b1593543803cab898092ce6cfe41e1",
+      "checkout_id": 36604186165552,
+      "checkout_token": "f5472d44978096a2085773a3fa43b785",
+      "client_details": {
+        "accept_language": "en-US",
+        "browser_height": null,
+        "browser_ip": "173.91.15.52",
+        "browser_width": null,
+        "session_hash": null,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57"
+      },
+      "closed_at": null,
+      "confirmed": true,
+      "contact_email": "nyanga@ppg.com",
+      "created_at": "2023-03-02T14:49:11-05:00",
+      "currency": "USD",
+      "current_subtotal_price": "2188.00",
+      "current_subtotal_price_set": {
+        "shop_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        }
+      },
+      "current_total_discounts": "0.00",
+      "current_total_discounts_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "current_total_duties_set": null,
+      "current_total_price": "2188.00",
+      "current_total_price_set": {
+        "shop_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        }
+      },
+      "current_total_tax": "0.00",
+      "current_total_tax_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "customer_locale": "en-US",
+      "device_id": null,
+      "discount_codes": [],
+      "email": "nyanga@ppg.com",
+      "estimated_taxes": false,
+      "financial_status": "paid",
+      "fulfillment_status": null,
+      "gateway": "shopify_payments",
+      "landing_site": "/password",
+      "landing_site_ref": null,
+      "location_id": null,
+      "name": "#1009",
+      "note": null,
+      "note_attributes": [],
+      "number": 9,
+      "order_number": 1009,
+      "order_status_url": "https://devppgpowdercoatings.myshopify.com/71482638640/orders/22df616d12f5918e09cec36d418164e1/authenticate?key=e3c6595ef2fd592f37fe7b442ca732cd",
+      "original_total_duties_set": null,
+      "payment_gateway_names": [ "shopify_payments" ],
+      "phone": null,
+      "presentment_currency": "USD",
+      "processed_at": "2023-03-02T14:49:07-05:00",
+      "processing_method": "direct",
+      "reference": "94541c5aad244d47936a8a36dd526539",
+      "referring_site": "",
+      "source_identifier": "94541c5aad244d47936a8a36dd526539",
+      "source_name": "web",
+      "source_url": null,
+      "subtotal_price": "2188.00",
+      "subtotal_price_set": {
+        "shop_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        }
+      },
+      "tags": "",
+      "tax_lines": [],
+      "taxes_included": false,
+      "test": true,
+      "token": "22df616d12f5918e09cec36d418164e1",
+      "total_discounts": "0.00",
+      "total_discounts_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "total_line_items_price": "2188.00",
+      "total_line_items_price_set": {
+        "shop_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        }
+      },
+      "total_outstanding": "0.00",
+      "total_price": "2188.00",
+      "total_price_set": {
+        "shop_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "2188.00",
+          "currency_code": "USD"
+        }
+      },
+      "total_price_usd": "2188.00",
+      "total_shipping_price_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "total_tax": "0.00",
+      "total_tax_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "USD"
+        }
+      },
+      "total_tip_received": "0.00",
+      "total_weight": 45300,
+      "updated_at": "2023-03-02T14:49:14-05:00",
+      "user_id": null,
+      "billing_address": {
+        "first_name": "Joe",
+        "address1": "1175 Gainsville Road",
+        "phone": null,
+        "city": "Brighton",
+        "zip": "38011",
+        "province": "Tennessee",
+        "country": "United States",
+        "last_name": "Blow",
+        "address2": null,
+        "company": null,
+        "latitude": null,
+        "longitude": null,
+        "name": "Joe Blow",
+        "country_code": "US",
+        "province_code": "TN"
+      },
+      "customer": {
+        "id": 6814521000240,
+        "email": "nyanga@ppg.com",
+        "accepts_marketing": false,
+        "created_at": "2023-03-02T14:49:07-05:00",
+        "updated_at": "2023-03-02T14:49:12-05:00",
+        "first_name": "Joe",
+        "last_name": "Blow",
+        "orders_count": 0,
+        "state": "disabled",
+        "total_spent": "0.00",
+        "last_order_id": null,
+        "note": null,
+        "verified_email": true,
+        "multipass_identifier": null,
+        "tax_exempt": false,
+        "tags": "",
+        "last_order_name": null,
+        "currency": "USD",
+        "phone": null,
+        "accepts_marketing_updated_at": "2023-03-02T14:49:08-05:00",
+        "marketing_opt_in_level": null,
+        "tax_exemptions": [],
+        "email_marketing_consent": {
+          "state": "not_subscribed",
+          "opt_in_level": "single_opt_in",
+          "consent_updated_at": null
+        },
+        "sms_marketing_consent": null,
+        "admin_graphql_api_id": "gid://shopify/Customer/6814521000240",
+        "default_address": {
+          "id": 9077056602416,
+          "customer_id": 6814521000240,
+          "first_name": "Joe",
+          "last_name": "Blow",
+          "company": null,
+          "address1": "1175 Gainsville Road",
+          "address2": null,
+          "city": "Brighton",
+          "province": "Tennessee",
+          "country": "United States",
+          "zip": "38011",
+          "phone": null,
+          "name": "Joe Blow",
+          "province_code": "TN",
+          "country_code": "US",
+          "country_name": "United States",
+          "default": true
+        }
+      },
+      "discount_applications": [],
+      "fulfillments": [],
+      "line_items": [
+        {
+          "id": 13757999317296,
+          "admin_graphql_api_id": "gid://shopify/LineItem/13757999317296",
+          "fulfillable_quantity": 100,
+          "fulfillment_service": "manual",
+          "fulfillment_status": null,
+          "gift_card": false,
+          "grams": 454,
+          "name": "RHINO ORANGE - 50",
+          "origin_location": {
+            "id": 3777738670384,
+            "country_code": "US",
+            "province_code": "PA",
+            "name": "7530 Perrysville Avenue",
+            "address1": "7530 Perrysville Avenue",
+            "address2": "",
+            "city": "Pittsburgh",
+            "zip": "15202"
+          },
+          "price": "21.88",
+          "price_set": {
+            "shop_money": {
+              "amount": "21.88",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "21.88",
+              "currency_code": "USD"
+            }
+          },
+          "product_exists": true,
+          "product_id": 8122363248944,
+          "properties": [],
+          "quantity": 100,
+          "requires_shipping": true,
+          "sku": "PCT39161/BXA",
+          "taxable": true,
+          "title": "RHINO ORANGE",
+          "total_discount": "0.00",
+          "total_discount_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "variant_id": 44434298962224,
+          "variant_inventory_management": "shopify",
+          "variant_title": "50",
+          "vendor": "PPG Powder Coatings - Gainesville",
+          "tax_lines": [],
+          "duties": [],
+          "discount_allocations": []
+        }
+      ],
+      "payment_terms": null,
+      "refunds": [],
+      "shipping_address": {
+        "first_name": "Joe",
+        "address1": "1175 Gainsville Road",
+        "phone": null,
+        "city": "Brighton",
+        "zip": "38011",
+        "province": "Tennessee",
+        "country": "United States",
+        "last_name": "Blow",
+        "address2": null,
+        "company": null,
+        "latitude": 35.4214596,
+        "longitude": -89.6343358,
+        "name": "Joe Blow",
+        "country_code": "US",
+        "province_code": "TN"
+      },
+      "shipping_lines": [
+        {
+          "id": 4307124224304,
+          "carrier_identifier": "650f1a14fa979ec5c74d063e968411d4",
+          "code": "Standard",
+          "delivery_category": null,
+          "discounted_price": "0.00",
+          "discounted_price_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "phone": null,
+          "price": "0.00",
+          "price_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "requested_fulfillment_service_id": null,
+          "source": "shopify",
+          "title": "Standard",
+          "tax_lines": [],
+          "discount_allocations": []
+        }
+      ]
+    }
+  ]
+}
