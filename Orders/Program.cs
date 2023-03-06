@@ -111,7 +111,7 @@ namespace Orders
                                 request_date = ConvertDateTimeString(order.created_at),
                                 scheduled_ship_date = "", //+2
                                 delivery_lead_time = 5, //+5
-                                expedited_ship_flag = "N", //reevalute later 
+                                expedited_ship_flag = order.shipping_lines.FirstOrDefault().price != "0"? "Y" : "N", //Y or N?
                                 freight_carrier_code = "GENERIC",//order.shipping_lines.FirstOrDefault().carrier_identifier,
                                 freight_terms_code = null, //order.shipping_lines.FirstOrDefault().code,
                                 ship_method_code = order.shipping_lines.FirstOrDefault().delivery_category,
@@ -125,7 +125,7 @@ namespace Orders
                         orderObj.lines_list.line = LinesList;
                         var json = JsonConvert.SerializeObject(orderObj);
                         Console.WriteLine(json);
-                        await _queueService.SendMessageAsync(orderObj);
+                        //await _queueService.SendMessageAsync(orderObj);
                         Console.WriteLine($"Order {order.id} sent to queue");
                     };
                     Console.WriteLine("all orders sent to queue");
@@ -195,6 +195,15 @@ namespace Orders
         public static string ConvertDateTimeString(DateTime dateTime)
         {
             return dateTime.ToString("yyyy-MM-dd hh:mm:ss");
+        }
+
+        public static string GetExpediteFlag(SharedModels.Models.APIModel.Order order)
+        {
+            if (order.shipping_lines.FirstOrDefault().price != "0")
+            {
+                return "Y";
+            }
+            return "N";
         }
         public static string GetPhoneNumberComponent(string phoneNumber, string component)
         {

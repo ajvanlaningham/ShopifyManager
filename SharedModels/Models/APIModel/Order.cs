@@ -322,8 +322,8 @@ namespace SharedModels.Models.APIModel
         public string last_name { get; set; }
         public string address2 { get; set; }
         public string company { get; set; }
-        public double latitude { get; set; }
-        public double longitude { get; set; }
+        public double? latitude { get; set; }
+        public double? longitude { get; set; }
         public string name { get; set; }
         public string country_code { get; set; }
         public string province_code { get; set; }

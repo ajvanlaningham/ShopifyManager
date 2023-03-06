@@ -1,37 +1,40 @@
-﻿{
+﻿// 20230303141330
+// https://admin.shopify.com/store/devppgpowdercoatings/orders.json?limit=1
+
+{
   "orders": [
     {
-      "id": 5266771312944,
-      "admin_graphql_api_id": "gid://shopify/Order/5266771312944",
+      "id": 5267551879472,
+      "admin_graphql_api_id": "gid://shopify/Order/5267551879472",
       "app_id": 580111,
-      "browser_ip": "173.91.15.52",
+      "browser_ip": "108.39.227.21",
       "buyer_accepts_marketing": false,
       "cancel_reason": null,
       "cancelled_at": null,
-      "cart_token": "01b1593543803cab898092ce6cfe41e1",
-      "checkout_id": 36604186165552,
-      "checkout_token": "f5472d44978096a2085773a3fa43b785",
+      "cart_token": "8303e47be0eabaae5991e319fc201c24",
+      "checkout_id": 36604261892400,
+      "checkout_token": "228e573e7220efa36ea6284cfce59504",
       "client_details": {
         "accept_language": "en-US",
         "browser_height": null,
-        "browser_ip": "173.91.15.52",
+        "browser_ip": "108.39.227.21",
         "browser_width": null,
         "session_hash": null,
-        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57"
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
       },
       "closed_at": null,
       "confirmed": true,
-      "contact_email": "nyanga@ppg.com",
-      "created_at": "2023-03-02T14:49:11-05:00",
+      "contact_email": "395363@ppg.com",
+      "created_at": "2023-03-03T14:13:19-05:00",
       "currency": "USD",
-      "current_subtotal_price": "2188.00",
+      "current_subtotal_price": "893.75",
       "current_subtotal_price_set": {
         "shop_money": {
-          "amount": "2188.00",
+          "amount": "893.75",
           "currency_code": "USD"
         },
         "presentment_money": {
-          "amount": "2188.00",
+          "amount": "893.75",
           "currency_code": "USD"
         }
       },
@@ -47,14 +50,14 @@
         }
       },
       "current_total_duties_set": null,
-      "current_total_price": "2188.00",
+      "current_total_price": "943.75",
       "current_total_price_set": {
         "shop_money": {
-          "amount": "2188.00",
+          "amount": "943.75",
           "currency_code": "USD"
         },
         "presentment_money": {
-          "amount": "2188.00",
+          "amount": "943.75",
           "currency_code": "USD"
         }
       },
@@ -71,48 +74,56 @@
       },
       "customer_locale": "en-US",
       "device_id": null,
-      "discount_codes": [],
-      "email": "nyanga@ppg.com",
+      "discount_codes": [
+
+      ],
+      "email": "395363@ppg.com",
       "estimated_taxes": false,
       "financial_status": "paid",
       "fulfillment_status": null,
       "gateway": "shopify_payments",
-      "landing_site": "/password",
+      "landing_site": "/",
       "landing_site_ref": null,
       "location_id": null,
-      "name": "#1009",
+      "name": "#1010",
       "note": null,
-      "note_attributes": [],
-      "number": 9,
-      "order_number": 1009,
-      "order_status_url": "https://devppgpowdercoatings.myshopify.com/71482638640/orders/22df616d12f5918e09cec36d418164e1/authenticate?key=e3c6595ef2fd592f37fe7b442ca732cd",
+      "note_attributes": [
+
+      ],
+      "number": 10,
+      "order_number": 1010,
+      "order_status_url": "https://devppgpowdercoatings.myshopify.com/71482638640/orders/9fcf5b054fbcb5fe899e4d718bd1bf5f/authenticate?key=e7e7dbb7e9b3fd79d66fe3bd67106e7e",
       "original_total_duties_set": null,
-      "payment_gateway_names": [ "shopify_payments" ],
+      "payment_gateway_names": [
+        "shopify_payments"
+      ],
       "phone": null,
       "presentment_currency": "USD",
-      "processed_at": "2023-03-02T14:49:07-05:00",
+      "processed_at": "2023-03-03T14:13:14-05:00",
       "processing_method": "direct",
-      "reference": "94541c5aad244d47936a8a36dd526539",
+      "reference": "9d171d73487f5c19a2524ad3a23b1ab5",
       "referring_site": "",
-      "source_identifier": "94541c5aad244d47936a8a36dd526539",
+      "source_identifier": "9d171d73487f5c19a2524ad3a23b1ab5",
       "source_name": "web",
       "source_url": null,
-      "subtotal_price": "2188.00",
+      "subtotal_price": "893.75",
       "subtotal_price_set": {
         "shop_money": {
-          "amount": "2188.00",
+          "amount": "893.75",
           "currency_code": "USD"
         },
         "presentment_money": {
-          "amount": "2188.00",
+          "amount": "893.75",
           "currency_code": "USD"
         }
       },
       "tags": "",
-      "tax_lines": [],
+      "tax_lines": [
+
+      ],
       "taxes_included": false,
       "test": true,
-      "token": "22df616d12f5918e09cec36d418164e1",
+      "token": "9fcf5b054fbcb5fe899e4d718bd1bf5f",
       "total_discounts": "0.00",
       "total_discounts_set": {
         "shop_money": {
@@ -124,37 +135,37 @@
           "currency_code": "USD"
         }
       },
-      "total_line_items_price": "2188.00",
+      "total_line_items_price": "893.75",
       "total_line_items_price_set": {
         "shop_money": {
-          "amount": "2188.00",
+          "amount": "893.75",
           "currency_code": "USD"
         },
         "presentment_money": {
-          "amount": "2188.00",
+          "amount": "893.75",
           "currency_code": "USD"
         }
       },
       "total_outstanding": "0.00",
-      "total_price": "2188.00",
+      "total_price": "943.75",
       "total_price_set": {
         "shop_money": {
-          "amount": "2188.00",
+          "amount": "943.75",
           "currency_code": "USD"
         },
         "presentment_money": {
-          "amount": "2188.00",
+          "amount": "943.75",
           "currency_code": "USD"
         }
       },
-      "total_price_usd": "2188.00",
+      "total_price_usd": "943.75",
       "total_shipping_price_set": {
         "shop_money": {
-          "amount": "0.00",
+          "amount": "50.00",
           "currency_code": "USD"
         },
         "presentment_money": {
-          "amount": "0.00",
+          "amount": "50.00",
           "currency_code": "USD"
         }
       },
@@ -170,88 +181,99 @@
         }
       },
       "total_tip_received": "0.00",
-      "total_weight": 45300,
-      "updated_at": "2023-03-02T14:49:14-05:00",
+      "total_weight": 24915,
+      "updated_at": "2023-03-03T14:13:21-05:00",
       "user_id": null,
       "billing_address": {
-        "first_name": "Joe",
-        "address1": "1175 Gainsville Road",
-        "phone": null,
-        "city": "Brighton",
-        "zip": "38011",
-        "province": "Tennessee",
+        "first_name": "RINEHART",
+        "address1": "1809 Beloit Avenue",
+        "phone": "+11111111111",
+        "city": "Janesville",
+        "zip": "53546",
+        "province": "Wisconsin",
         "country": "United States",
-        "last_name": "Blow",
+        "last_name": "TARGETS",
         "address2": null,
-        "company": null,
+        "company": "RINEHART TARGETS",
         "latitude": null,
         "longitude": null,
-        "name": "Joe Blow",
+        "name": "RINEHART TARGETS",
         "country_code": "US",
-        "province_code": "TN"
+        "province_code": "WI"
       },
       "customer": {
-        "id": 6814521000240,
-        "email": "nyanga@ppg.com",
+        "id": 6794549166384,
+        "email": "395363@ppg.com",
         "accepts_marketing": false,
-        "created_at": "2023-03-02T14:49:07-05:00",
-        "updated_at": "2023-03-02T14:49:12-05:00",
-        "first_name": "Joe",
-        "last_name": "Blow",
-        "orders_count": 0,
-        "state": "disabled",
-        "total_spent": "0.00",
-        "last_order_id": null,
-        "note": null,
+        "created_at": "2023-02-20T10:36:33-05:00",
+        "updated_at": "2023-03-03T14:13:19-05:00",
+        "first_name": "RINEHART",
+        "last_name": "TARGETS",
+        "orders_count": 1,
+        "state": "enabled",
+        "total_spent": "1787.50",
+        "last_order_id": 5266635292976,
+        "note": "",
         "verified_email": true,
         "multipass_identifier": null,
         "tax_exempt": false,
-        "tags": "",
-        "last_order_name": null,
+        "tags": "AR_0025616INC, SUID_395363",
+        "last_order_name": "#1005",
         "currency": "USD",
-        "phone": null,
-        "accepts_marketing_updated_at": "2023-03-02T14:49:08-05:00",
+        "phone": "+14124341111",
+        "accepts_marketing_updated_at": "2023-02-20T10:37:34-05:00",
         "marketing_opt_in_level": null,
-        "tax_exemptions": [],
+        "tax_exemptions": [
+
+        ],
         "email_marketing_consent": {
           "state": "not_subscribed",
           "opt_in_level": "single_opt_in",
           "consent_updated_at": null
         },
-        "sms_marketing_consent": null,
-        "admin_graphql_api_id": "gid://shopify/Customer/6814521000240",
+        "sms_marketing_consent": {
+          "state": "not_subscribed",
+          "opt_in_level": "single_opt_in",
+          "consent_updated_at": null,
+          "consent_collected_from": "SHOPIFY"
+        },
+        "admin_graphql_api_id": "gid://shopify/Customer/6794549166384",
         "default_address": {
-          "id": 9077056602416,
-          "customer_id": 6814521000240,
-          "first_name": "Joe",
-          "last_name": "Blow",
-          "company": null,
-          "address1": "1175 Gainsville Road",
-          "address2": null,
-          "city": "Brighton",
-          "province": "Tennessee",
+          "id": 9055543263536,
+          "customer_id": 6794549166384,
+          "first_name": "RINEHART",
+          "last_name": "TARGETS",
+          "company": "RINEHART TARGETS",
+          "address1": "1809 Beloit Avenue",
+          "address2": "",
+          "city": "Janesville",
+          "province": "Wisconsin",
           "country": "United States",
-          "zip": "38011",
-          "phone": null,
-          "name": "Joe Blow",
-          "province_code": "TN",
+          "zip": "53546",
+          "phone": "+11111111111",
+          "name": "RINEHART TARGETS",
+          "province_code": "WI",
           "country_code": "US",
           "country_name": "United States",
           "default": true
         }
       },
-      "discount_applications": [],
-      "fulfillments": [],
+      "discount_applications": [
+
+      ],
+      "fulfillments": [
+
+      ],
       "line_items": [
         {
-          "id": 13757999317296,
-          "admin_graphql_api_id": "gid://shopify/LineItem/13757999317296",
-          "fulfillable_quantity": 100,
+          "id": 13759303385392,
+          "admin_graphql_api_id": "gid://shopify/LineItem/13759303385392",
+          "fulfillable_quantity": 55,
           "fulfillment_service": "manual",
           "fulfillment_status": null,
           "gift_card": false,
           "grams": 454,
-          "name": "RHINO ORANGE - 50",
+          "name": "BLACK RUST MATTE - Pounds",
           "origin_location": {
             "id": 3777738670384,
             "country_code": "US",
@@ -262,25 +284,27 @@
             "city": "Pittsburgh",
             "zip": "15202"
           },
-          "price": "21.88",
+          "price": "16.25",
           "price_set": {
             "shop_money": {
-              "amount": "21.88",
+              "amount": "16.25",
               "currency_code": "USD"
             },
             "presentment_money": {
-              "amount": "21.88",
+              "amount": "16.25",
               "currency_code": "USD"
             }
           },
           "product_exists": true,
-          "product_id": 8122363248944,
-          "properties": [],
-          "quantity": 100,
+          "product_id": 8122344210736,
+          "properties": [
+
+          ],
+          "quantity": 55,
           "requires_shipping": true,
-          "sku": "PCT39161/BXA",
+          "sku": "PCMT94100/BXA",
           "taxable": true,
-          "title": "RHINO ORANGE",
+          "title": "BLACK RUST MATTE",
           "total_discount": "0.00",
           "total_discount_set": {
             "shop_money": {
@@ -292,68 +316,87 @@
               "currency_code": "USD"
             }
           },
-          "variant_id": 44434298962224,
+          "variant_id": 44434245452080,
           "variant_inventory_management": "shopify",
-          "variant_title": "50",
+          "variant_title": "Pounds",
           "vendor": "PPG Powder Coatings - Gainesville",
-          "tax_lines": [],
-          "duties": [],
-          "discount_allocations": []
+          "tax_lines": [
+
+          ],
+          "duties": [
+
+          ],
+          "discount_allocations": [
+
+          ]
         }
       ],
+      "payment_details": {
+        "credit_card_bin": "411111",
+        "avs_result_code": "Y",
+        "cvv_result_code": "M",
+        "credit_card_number": "•••• •••• •••• 1111",
+        "credit_card_company": "Visa"
+      },
       "payment_terms": null,
-      "refunds": [],
+      "refunds": [
+
+      ],
       "shipping_address": {
-        "first_name": "Joe",
-        "address1": "1175 Gainsville Road",
-        "phone": null,
-        "city": "Brighton",
-        "zip": "38011",
-        "province": "Tennessee",
+        "first_name": "RINEHART",
+        "address1": "1809 Beloit Avenue",
+        "phone": "+11111111111",
+        "city": "Janesville",
+        "zip": "53546",
+        "province": "Wisconsin",
         "country": "United States",
-        "last_name": "Blow",
+        "last_name": "TARGETS",
         "address2": null,
-        "company": null,
-        "latitude": 35.4214596,
-        "longitude": -89.6343358,
-        "name": "Joe Blow",
+        "company": "RINEHART TARGETS",
+        "latitude": 42.6526975,
+        "longitude": -89.0111423,
+        "name": "RINEHART TARGETS",
         "country_code": "US",
-        "province_code": "TN"
+        "province_code": "WI"
       },
       "shipping_lines": [
         {
-          "id": 4307124224304,
+          "id": 4307753074992,
           "carrier_identifier": "650f1a14fa979ec5c74d063e968411d4",
-          "code": "Standard",
+          "code": "Express",
           "delivery_category": null,
-          "discounted_price": "0.00",
+          "discounted_price": "50.00",
           "discounted_price_set": {
             "shop_money": {
-              "amount": "0.00",
+              "amount": "50.00",
               "currency_code": "USD"
             },
             "presentment_money": {
-              "amount": "0.00",
+              "amount": "50.00",
               "currency_code": "USD"
             }
           },
           "phone": null,
-          "price": "0.00",
+          "price": "50.00",
           "price_set": {
             "shop_money": {
-              "amount": "0.00",
+              "amount": "50.00",
               "currency_code": "USD"
             },
             "presentment_money": {
-              "amount": "0.00",
+              "amount": "50.00",
               "currency_code": "USD"
             }
           },
           "requested_fulfillment_service_id": null,
           "source": "shopify",
-          "title": "Standard",
-          "tax_lines": [],
-          "discount_allocations": []
+          "title": "Express",
+          "tax_lines": [
+
+          ],
+          "discount_allocations": [
+
+          ]
         }
       ]
     }
